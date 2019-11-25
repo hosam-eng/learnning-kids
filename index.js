@@ -37,11 +37,14 @@ btn.addEventListener("click",function(e)
    var result= '';
    var characters= 'abcdefghijklmnopqrstuvwxyz';
    var charactersLength = characters.length;
+	  if(num>0 && num<27)
+	  {
    for ( var i = 0; i < num; i++ ) {
       result+= characters.charAt(Math.floor(Math.random() * charactersLength));	   
    } 
    create_btns(result);  
 }
+  }
 
   
    function create_btns(result)
