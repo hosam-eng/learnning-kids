@@ -81,7 +81,7 @@ button.addEventListener("click",function(e){
 		di.innerHTML=null;
 		di.appendChild(image);
 		image.src="images/"+e.target.value+".jpg ";
-		image.setAttribute("style","width:600;height:300;");
+		image.setAttribute("style","width:600;height:300; border: 2px dashed #03d3fc;border-radius: 5px;");
 		}
 		else
 		{
