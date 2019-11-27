@@ -2,22 +2,30 @@
 store_event=window.localStorage;
 
 
-setInterval(function(){store_event.clear();},5000);
+//setInterval(function(){store_event.clear();},5000);
   //hanle load event
   window.addEventListener("load", function(e){
 	  
 	var e_load=e.type+", "+ e.target +","+new Date();
-	var x=store_event.length +1;
-	 store_event.setItem(x,e_load);
+	// var x=store_event.length +1;
+	 // store_event.setItem(x,e_load);
 	
+	 var old = localStorage.getItem("load");
+    if(old === null) 
+		 store_event.setItem("load",e_load);
+	 else
+    store_event.setItem("load",old + e_load);
   });
 
 //hanle unload event
   window.addEventListener("unload", function(e){
 	  
 	var e_unload=e.type+", "+ e.target +","+new Date();
-	var x=store_event.length +1;
-	 store_event.setItem(x,e_unload);
+	 var old = localStorage.getItem("unload");
+    if(old === null) 
+		 store_event.setItem("unload",e_unload);
+	 else
+    store_event.setItem("unload",old + e_unload);
 	
   });
 	
@@ -32,8 +40,11 @@ btn.addEventListener("click",function(e)
 {
 //hanle event for botton generate 
      var e_btngenerate=e.type+", "+ e.target +","+new Date();
-	 var x=store_event.length +1;
-	 store_event.setItem(x,e_btngenerate);
+ var old = localStorage.getItem("clickgenerate");
+    if(old === null) 
+		 store_event.setItem("clickgenerate",e_btngenerate);
+	 else
+    store_event.setItem("clickgenerate",old + e_btngenerate);
 	
 });
   
@@ -83,8 +94,11 @@ button.addEventListener("click",function(e){
 	
 	// hanle event for botton alphabet 
    var e_btnalphabet=e.type+", "+ e.target +","+new Date();
-   var x=store_event.length +1;
-	 store_event.setItem(x,e_btnalphabet);
+ var old = localStorage.getItem("clickalphabet");
+    if(old === null) 
+		 store_event.setItem("clickalphabet",e_btnalphabet);
+	 else
+    store_event.setItem("clickalphabet",old + e_btnalphabet);
 	
 	 
 		var di=document.getElementById("divim");
