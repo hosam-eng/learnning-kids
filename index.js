@@ -2,7 +2,7 @@
 store_event=window.localStorage;
 
 
-//setInterval(function(){store_event.clear();},5000);
+setInterval(function(){store_event.clear();},5000);
   //hanle load event
   window.addEventListener("load", function(e){
 	  
