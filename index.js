@@ -9,7 +9,7 @@ setInterval(function(){store_event.clear();},5000);
 	var e_load=e.type+", "+ e.target +","+new Date();
 	var x=store_event.length +1;
 	 store_event.setItem(x,e_load);
-	// counter++;
+	
   });
 
 //hanle unload event
@@ -18,7 +18,7 @@ setInterval(function(){store_event.clear();},5000);
 	var e_unload=e.type+", "+ e.target +","+new Date();
 	var x=store_event.length +1;
 	 store_event.setItem(x,e_unload);
-	 counter++;
+	
   });
 	
 
