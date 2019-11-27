@@ -1,98 +1,71 @@
+<html>
+<head>
 
-store_event=window.localStorage;
+<title>project 1</title>
+<style>
 
-
-  //hanle load event
-  window.addEventListener("load", function(e){
-	  
-	var e_load=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("load",e_load);
-  });
-
-//hanle unload event
-  window.addEventListener("unload", function(e){
-	  
-	var e_unload=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("unload",e_unload);
-  });
-	
-
-
-
-var btn =document.getElementById("sub");
-
-btn.addEventListener("click",random_range);
-
-btn.addEventListener("click",function(e)
-{
-//hanle event for botton generate 
-     var e_btngenerate=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("clickOnbtngen",e_btngenerate);
-});
+   .head1{position:relative;width:700;border:dashed #c2c7c1; background-color: #ededed;}
+   .kids{position:absolute;width:110;right:100;top:30}
+  #divim{position:absolute;margin-top:20;width:1000;text-align:center}
+  .im{position:relative;width:500;text-align:center;margin-left:50}
+  h1{color:lightblue;margin-top:50;margin-bottom:50}
+  p{margin-left:30;color:#3bd1b5;font-size:40}
+  #divbtn{width:1000;}
   
-  function random_range() {
-	  	 	 
-   var txt=document.getElementById("n");
-   var num=txt.value;
-   var result= '';
-   var characters= 'abcdefghijklmnopqrstuvwxyz';
-   var charactersLength = characters.length;
-	  if(num>0 && num<27)
-	  {
-   for ( var i = 0; i < num; i++ ) {
-      result+= characters.charAt(Math.floor(Math.random() * charactersLength));	   
-   } 
-   create_btns(result);  
-}
-  }
-
-  
-   function create_btns(result)
-   {
-	   
-       for(var i=0;i<result.length;i++)
-	{
-	  // 1. Create the button
-var button = document.createElement("input");
-button.setAttribute("type","submit");
-button.setAttribute("value",result[i]);
-button.setAttribute("class","b1");
-
-
-//insert botton in page
-var body=document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-
-//add event botton alphabet
-button.addEventListener("click",function(e){
-	
-	// hanle event for botton alphabet 
-   var e_btnalphabet=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("clickOnbtnalpha",e_btnalphabet);
-	 
-	 
-		var di=document.getElementById("divim");
-		var image=document.createElement("img");
-		
-		
-		if(di.innerHTML !=null)
-		{
-		di.innerHTML=null;
-		di.appendChild(image);
-		image.src="images/"+e.target.value+".jpg ";
-		image.setAttribute("style","width:600;height:300; border: 2px dashed #03d3fc;border-radius: 5px;");
-		}
-		else
-		{
-			di.appendChild(image);
-		image.src="images/"+e.target.value+".jpg ";
-		image.setAttribute("style","width:600;height:300; border: 2px dashed #03d3fc;border-radius: 5px;");
-		}
-		
-	   });
-
-	}  
+.b1{
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-top:30;
 }
 
- 
+ .b1:hover {
+  background-color: #7ac7eb;
+}
+
+#sub{
+  background-color:#9a7e9c;
+  border: double;
+  color: white;
+  padding: 8px 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#n{
+  background-color:white;
+  border: solid #eaebe8;
+  color: gray;
+  padding: 10px 8px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class=head1>
+<h1><p><i><span style="color:#03dffc">Learn</span> <span style="color:#e8f005">The</span>
+ <span style="color:#4386b0">English</span> <span style="color:#b04343">Letters</span></h1></i>
+<img src="images/image.jpg" class="kids">
+<p>number of letters:
+<input type="text" id="n" placeholder="enter number" size=10>
+<input type="submit" value="Generate" id="sub">
+</p>
+</div>
+<div id="divbtn">
+
+</div>
+
+<div id="divim">
+
+</div>
+<script src="index.js"></script>
+</body>
+</html>
