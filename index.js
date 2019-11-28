@@ -1,19 +1,38 @@
 
 store_event=window.localStorage;
 
+function store(key,events)
+{
+	this.key=key;
+	this.events=function(){
+		 var old = localStorage.getItem(key);
+    if(old === null) 
+		 store_event.setItem(key,events);
+	 else
+    store_event.setItem(key,old + events);
+	}
+}
 
+setInterval(function(){store_event.clear();},5000);
   //hanle load event
   window.addEventListener("load", function(e){
 	  
-	var e_load=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("load",e_load);
+	var e_load=e.type+", "+ e.target +","+new Date()+"//";
+	var e1=new store("load",e_load);
+	 e1.events();
+	 
+	// var x=store_event.length +1;
+	 // store_event.setItem(x,e_load);
+
   });
 
 //hanle unload event
   window.addEventListener("unload", function(e){
 	  
-	var e_unload=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("unload",e_unload);
+	var e_unload=e.type+", "+ e.target +","+new Date()+"//";
+	 var e1=new store("unload",e_unload);
+	 e1.events();
+	
   });
 	
 
@@ -26,8 +45,10 @@ btn.addEventListener("click",random_range);
 btn.addEventListener("click",function(e)
 {
 //hanle event for botton generate 
-     var e_btngenerate=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("clickOnbtngen",e_btngenerate);
+     var e_btngenerate=e.type+", "+ e.target +","+new Date()+"//";
+     var e1=new store("btngenerate",e_btngenerate);
+     	 e1.events();
+	
 });
   
   function random_range() {
@@ -37,37 +58,47 @@ btn.addEventListener("click",function(e)
    var result= '';
    var characters= 'abcdefghijklmnopqrstuvwxyz';
    var charactersLength = characters.length;
-   for ( var i = 0; i < num; i++ ) {
-      result+= characters.charAt(Math.floor(Math.random() * charactersLength));	   
-   } 
+	  if(num>0 && num<27)
+	  {
+   for ( var i = 0; i < num; i++ ) 
+   {
+	  var s=characters.charAt(Math.floor(Math.random() * charactersLength));
+	   if(result.length !=0 && result.indexOf(s)!=-1)
+	   {
+	   num++;
+	   }
+	   else
+	   {
+      result+=s;
+    
    create_btns(result);  
-}
-
-  
+        }
+      }
+    }
+  } 
    function create_btns(result)
    {
 	   
+	   var div=document.getElementById("divbtn");
+	   if(div.innerHTML !=null)
+		div.innerHTML=null;
        for(var i=0;i<result.length;i++)
-	{
+	   {
+		
 	  // 1. Create the button
 var button = document.createElement("input");
+  div.appendChild(button);
 button.setAttribute("type","submit");
 button.setAttribute("value",result[i]);
 button.setAttribute("class","b1");
-
-
-//insert botton in page
-var body=document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
 
 //add event botton alphabet
 button.addEventListener("click",function(e){
 	
 	// hanle event for botton alphabet 
-   var e_btnalphabet=e.type+", "+ e.target +","+new Date();
-	 store_event.setItem("clickOnbtnalpha",e_btnalphabet);
-	 
+   var e_btnalphabet=e.type+", "+ e.target +","+new Date()+"//";
+    var e1=new store("btnalphabet",e_btnalphabet);
+     	 e1.events();
 	 
 		var di=document.getElementById("divim");
 		var image=document.createElement("img");
@@ -78,13 +109,13 @@ button.addEventListener("click",function(e){
 		di.innerHTML=null;
 		di.appendChild(image);
 		image.src="images/"+e.target.value+".jpg ";
-		image.setAttribute("style","width:600;height:300;");
+		image.setAttribute("style","width:600;height:300; border: 4px double #375380;border-radius: 5px;");
 		}
 		else
 		{
 			di.appendChild(image);
 		image.src="images/"+e.target.value+".jpg ";
-		image.setAttribute("style","width:600;height:300;");
+		image.setAttribute("style","width:600;height:300; border: double #375380;border-radius: 5px;");
 		}
 		
 	   });
@@ -92,4 +123,3 @@ button.addEventListener("click",function(e){
 	}  
 }
 
- 
