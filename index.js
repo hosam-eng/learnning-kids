@@ -1,31 +1,37 @@
 
 store_event=window.localStorage;
 
+function store(key,events)
+{
+	this.key=key;
+	this.events=function(){
+		 var old = localStorage.getItem(key);
+    if(old === null) 
+		 store_event.setItem(key,events);
+	 else
+    store_event.setItem(key,old + events);
+	}
+}
 
 setInterval(function(){store_event.clear();},5000);
   //hanle load event
   window.addEventListener("load", function(e){
 	  
-	var e_load=e.type+", "+ e.target +","+new Date();
+	var e_load=e.type+", "+ e.target +","+new Date()+"//";
+	var e1=new store("load",e_load);
+	 e1.events();
+	 
 	// var x=store_event.length +1;
 	 // store_event.setItem(x,e_load);
-	
-	 var old = localStorage.getItem("load");
-    if(old === null) 
-		 store_event.setItem("load",e_load);
-	 else
-    store_event.setItem("load",old + e_load);
+
   });
 
 //hanle unload event
   window.addEventListener("unload", function(e){
 	  
-	var e_unload=e.type+", "+ e.target +","+new Date();
-	 var old = localStorage.getItem("unload");
-    if(old === null) 
-		 store_event.setItem("unload",e_unload);
-	 else
-    store_event.setItem("unload",old + e_unload);
+	var e_unload=e.type+", "+ e.target +","+new Date()+"//";
+	 var e1=new store("unload",e_unload);
+	 e1.events();
 	
   });
 	
@@ -39,12 +45,9 @@ btn.addEventListener("click",random_range);
 btn.addEventListener("click",function(e)
 {
 //hanle event for botton generate 
-     var e_btngenerate=e.type+", "+ e.target +","+new Date();
- var old = localStorage.getItem("clickgenerate");
-    if(old === null) 
-		 store_event.setItem("clickgenerate",e_btngenerate);
-	 else
-    store_event.setItem("clickgenerate",old + e_btngenerate);
+     var e_btngenerate=e.type+", "+ e.target +","+new Date()+"//";
+     var e1=new store("btngenerate",e_btngenerate);
+     	 e1.events();
 	
 });
   
@@ -93,13 +96,9 @@ button.setAttribute("class","b1");
 button.addEventListener("click",function(e){
 	
 	// hanle event for botton alphabet 
-   var e_btnalphabet=e.type+", "+ e.target +","+new Date();
- var old = localStorage.getItem("clickalphabet");
-    if(old === null) 
-		 store_event.setItem("clickalphabet",e_btnalphabet);
-	 else
-    store_event.setItem("clickalphabet",old + e_btnalphabet);
-	
+   var e_btnalphabet=e.type+", "+ e.target +","+new Date()+"//";
+    var e1=new store("btnalphabet",e_btnalphabet);
+     	 e1.events();
 	 
 		var di=document.getElementById("divim");
 		var image=document.createElement("img");
