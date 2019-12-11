@@ -1,0 +1,46 @@
+
+    .container{position:relative;width:1400;margin:auto;}
+   .head1{position:relative;width:1340;padding:5; background-color: #ededed;}
+   .kids{position:absolute;width:350;right:150;top:40}
+  #divim{margin:auto;margin-top:10;width:1000;text-align:center}
+  .im{position:relative;width:500;text-align:center;margin-left:50}
+  h1{color:lightblue;margin-top:50;margin-bottom:50;}
+  p{margin-left:30;color:#3bd1b5;font-size:40;margin-left:300}
+  #divbtn{width:1000;margin:auto;margin-top:5;text-align:center;}
+  
+.b1{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-top:30;
+}
+
+ .b1:hover {
+  background-color: #3e8e41;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#sub{
+  background-color:#9a7e9c;
+  border: double;
+  color: white;
+  padding: 8px 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#sub:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+#n{
+  background-color:white;
+  border: solid #eaebe8;
+  color: gray;
+  padding: 10px 8px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#enter { border: solid #375380;width:400;text-align:center;margin-left:320}
