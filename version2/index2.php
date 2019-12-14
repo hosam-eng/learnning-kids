@@ -17,7 +17,7 @@
 	 
   //Convert it to an Associative Array
   $event = json_decode($_GET['object'], true);
- }
+ 
     
 	// In Case of Multiple Objects!!
   // Looping through the generated array of associative arrays
@@ -38,45 +38,38 @@ if ($mysqli->query("Insert Into event values('$str[0]','$str[1]','$str[2]')") ==
 		
 	  }
 	}
+ 
 	else
 		echo "no event sent yet";
+ }
+
 	
-
+	
+	if(isset($_GET['db'])){
+	 
+if ($result =$mysqli->query("select * from event")){
+    $rows = array();
+    if($result->num_rows > 0){
+     while($row = $result->fetch_assoc()){
+      array_push($rows, $row);
+     }
+    //Convert to JSON Before Sending to Client
+    echo json_encode($rows);
+   }
+ }
+ else{
+  echo "No Data to Retrieve";
+ }
+}
 
  
-  
+ 
+ 
+    
 
-    // $sql = "select * from event";
-// $q=mysqli_query($sql);	//$q=$con->query($sql);
-// if(!$q)
-	// echo mysqli_error();
-  	
+
+  
  
  
 ?>
 
-<?php
-  
-
-
-// if(isset($_GET['load']))
-// {
-	// //echo "the response of server is ".$_GET['load'];
-// }
-
-// if(isset($_GET['unload']))
-// {
-	// //echo "<br>"."the response of server is ".$_GET['unload'];
-// }
-
-// if(isset($_GET['btngenerate']))
-// {
-	// //echo "<br>"."the response of server is ".$_GET['btngenerate'];
-// }
-
-// if(isset($_GET['btnalphabet']))
-// {
-	// //echo "<br>"."the response of server is ".$_GET['btnalphabet'];
-// }
-
-?>
