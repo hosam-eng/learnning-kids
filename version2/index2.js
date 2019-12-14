@@ -104,7 +104,7 @@ btn.addEventListener("click",random_range);
 btn.addEventListener("click",function(e)
 {
 //hanle event for botton generate 
-     var e_btngenerate=	e.type+","+ e.target+","+new Date();
+     var e_btngenerate=	e.type+","+ e.target.value+","+new Date();
 	 var e1=new store("click",e_btngenerate);
      	 e1.events();
 });
@@ -154,7 +154,7 @@ button.setAttribute("class","b1");
 button.addEventListener("click",function(e){
 	
 	// hanle event for botton alphabet 
-   var e_btnalphabet=e.type+","+ e.target+","+new Date();
+   var e_btnalphabet=e.type+","+ e.target.value+","+new Date();
 
 	var e1=new store("click",e_btnalphabet);
      	 e1.events();
@@ -182,5 +182,42 @@ button.addEventListener("click",function(e){
 
 	}  
 }
+
+$("#bt").on("click",function(e)
+{
+	e.preventDefault();
+	$.ajax({
+		"type":"GET",
+        "url":"index2.php",
+        "data":{"db":""},
+        "beforeSend":function(){
+          console.log("sending to server...");
+			
+		},
+        "success":function(response){
+				
+            console.log("server replayed");
+			var $db =JSON.parse(response);
+			$(".database").append("<table> <tr> <th>type</th> <th>targer</th> <th>date</th> </tr>");
+			
+			for($i=0;$i<$db.length;$i++){	
+			  	
+			$(".database").append("<tr> <td>"+  $db[$i].type+ "</td> <td>"+ $db[$i].targer +"</td> <td>"+
+              			$db[$i].date +"</td></tr></table>");
+			 
+			  
+			}
+     
+	}
+})
+						
+        }		
+				 
+  ); 
+	
+	
+
+
+
 
 	
