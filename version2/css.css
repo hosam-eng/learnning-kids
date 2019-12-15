@@ -6,6 +6,7 @@
   .im{position:relative;width:500;text-align:center;margin-left:50}
   h1{color:lightblue;margin-top:50;margin-bottom:50;}
   p{margin-left:30;color:#3bd1b5;font-size:40;margin-left:300}
+  #error{margin-left:30;color:red;font-size:40;margin-left:300}
   #divbtn{width:1000;margin:auto;margin-top:5;text-align:center;}
   
 .b1{
@@ -47,15 +48,14 @@
 
 .database {
 	position:relative;
-	width:500;
-	 margin:auto;
+	width:400;
 	
 	
 }
 table {
   border-collapse: collapse;
   width: 100%;
- 
+  
 }
 
 th, td {
