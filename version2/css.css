@@ -48,14 +48,14 @@
 .database {
 	position:relative;
 	width:500;
-	padding:5;
+	 margin:auto;
 	
 	
 }
 table {
   border-collapse: collapse;
   width: 100%;
-  margin:auto;
+ 
 }
 
 th, td {
