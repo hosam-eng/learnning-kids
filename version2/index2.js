@@ -27,19 +27,19 @@ function store(key,events)
 	   }
          var arr=[];
          var arr_object=[];
-		 if(store_event.getItem("load"));
+		 if(store_event.getItem("load"))
        arr.push( store_event.getItem("load"));
-	    if(store_event.getItem("unload"));
+	    if(store_event.getItem("unload"))
 	   arr.push( store_event.getItem("unload"));
-	    if(store_event.getItem("click"));
+	    if(store_event.getItem("click"))
 	   arr.push( store_event.getItem("click"));
           
 		  if(arr.length>0)
 		  {
 		for(var i=0; i<arr.length;i++)
 		{
-			if(arr[i] !=undefined)
-			{
+			//if(arr[i] !=undefined)
+			//{
 			var sp1=arr[i].split("&");
 			for(var j=0;j<sp1.length;j++)
 			{
@@ -47,7 +47,8 @@ function store(key,events)
 			var create_ob=new ob(sp2[0],sp2[1],sp2[2]);
 		     arr_object.push(create_ob);
 			 
-		}}}
+		//}
+		}}
 		  }
 		
 
