@@ -187,14 +187,6 @@ button.addEventListener("click",function(e){
 	}  
 }
 
-$("#bt").on("click",function(e)
-{
-	
-
-						
-        }		
-				 
-  ); 
 	
 	
 
